@@ -6,48 +6,94 @@ import { Color } from './components/Color';
 class App extends React.Component {
     constructor(props) {
 		super(props);
-			
+		
 		this.state = {
 			colors: [],
 			initialized: false,
-			selectedColor: null
+			selectedColor: null,
+			hash: {}
 		};
 		
 		this.changeColor = this.changeColor.bind(this);
+		this.removeColor = this.removeColor.bind(this);
 		this.startOver = this.startOver.bind(this);
+	}
+	
+	getAllReferences(colors) {
+		let colorObj = {}
+		for(let i = 0; i < colors.length; i++) {
+			const color = colors[i];
+			colorObj[color] = React.createRef();
+			
+		}
+		
+		return colorObj;
 	}
 	
 	componentDidMount() {
 		
-		if(!this.state.intialized) {
-					
-			let colors = createFiftyRandomColors();
+		if(!this.state.initialized) {
+			const colors = createFiftyRandomColors(),
+			      colorReferences = this.getAllReferences(colors);		
+			
 			this.setState({
 				colors: colors,
-				initialized: true
+				initialized: true,
+				hash: colorReferences
 			});
 					
 		}
 	}
+	
+	removeColor() {
 		
+		console.log(this.state.selectedColor,this.state.hash,'remove color');
+		const refNode = this.state.hash[this.state.selectedColor].current;
+		refNode.deselect();
+				
+	}
+	
 	changeColor(newColor) {
 		
-
-		this.setState({
-			selectedColor: newColor
-		});
-		
+		const refNode = this.state.hash[newColor].current;
+		console.log('change color refNode: ',refNode);
+		if(this.state.selectedColor) {
+			console.log('change color selectedColor: ',refNode);
+			this.removeColor();
+			refNode.select();
+			this.setState({
+				
+				selectedColor: newColor
+			
+			});
+			
+		} else {
+			console.log('change color not selectedColor: ',refNode);
+			refNode.select();
+			this.setState({
+				
+				selectedColor: newColor
+				
+			});
+			
+		}
 		
 	}
 	
+	
+	
 	startOver() {
 		
-		let colors = createFiftyRandomColors();
+		const colors = createFiftyRandomColors(),
+		      colorReferences = this.getAllReferences(colors);		
+		
 		this.setState({
 			colors: colors,
 			initialized: true,
-			selectedColor: null
+			selectedColor:null,
+			hash: colorReferences
 		});
+		
 	}
 	
 	
@@ -61,7 +107,7 @@ class App extends React.Component {
 				<div className='reset' >
 					<button onClick={this.startOver}>Reset</button>
 				</div>
-				{this.state.colors.map((color, i) => <Color key={'color_'+i} color={color} selected={this.state.selectedColor} onClick={this.changeColor}/>)}
+				{this.state.colors.map((color, i) => <Color ref={this.state.hash[color]} key={'color_'+i} color={color} selected={this.state.selectedColor} onClick={this.changeColor}/>)}
             </div>);
         }
       }

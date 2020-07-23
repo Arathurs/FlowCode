@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { createFiftyRandomColors } from './assets/helperfunctions';
-import { Color } from './components/Color';
+import { FlowCodeContainer } from './components/FlowCodeContainer';
 
 class App extends React.Component {
     constructor(props) {
@@ -100,16 +100,10 @@ class App extends React.Component {
 	
 	render() {
        
+	    return <FlowCodeContainer onClick={this.startOver} selectedColor={this.state.selectedColor} colors={this.state.colors} hash={this.state.hash} onClick2={this.changeColor} />;
+            
+    }
 
-        return (
-            <div className="container">
-				<h1>Color Selector</h1>
-				<div className='reset' >
-					<button onClick={this.startOver}>Reset</button>
-				</div>
-				{this.state.colors.map((color, i) => <Color ref={this.state.hash[color]} key={'color_'+i} color={color} selected={this.state.selectedColor} onClick={this.changeColor}/>)}
-            </div>);
-        }
-      }
+}
 
 export default App;

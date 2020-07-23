@@ -18,7 +18,7 @@ export const FlowCode = props => {
 				
 				<div className="selected-color">
 					
-					<h2>{props.message}</h2>
+					<h2>{props.selectedColor ? `You picked ${props.selectedColor}` : 'Choose a Color!'}</h2>
 				
 				</div>
 				

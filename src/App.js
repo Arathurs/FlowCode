@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import { createFiftyRandomColors } from './assets/helperfunctions';
-import { FlowCodeContainer } from './components/FlowCodeContainer';
+import { createFiftyRandomColors } from './assets/js/helperfunctions';
+import { FlowCode } from './components/FlowCode';
 
 class App extends React.Component {
     constructor(props) {
@@ -47,7 +47,6 @@ class App extends React.Component {
 	
 	removeColor() {
 		
-		console.log(this.state.selectedColor,this.state.hash,'remove color');
 		const refNode = this.state.hash[this.state.selectedColor].current;
 		refNode.deselect();
 				
@@ -56,9 +55,8 @@ class App extends React.Component {
 	changeColor(newColor) {
 		
 		const refNode = this.state.hash[newColor].current;
-		console.log('change color refNode: ',refNode);
 		if(this.state.selectedColor) {
-			console.log('change color selectedColor: ',refNode);
+			
 			this.removeColor();
 			refNode.select();
 			this.setState({
@@ -68,7 +66,7 @@ class App extends React.Component {
 			});
 			
 		} else {
-			console.log('change color not selectedColor: ',refNode);
+			
 			refNode.select();
 			this.setState({
 				
@@ -100,7 +98,7 @@ class App extends React.Component {
 	
 	render() {
        
-	    return <FlowCodeContainer onClick={this.startOver} selectedColor={this.state.selectedColor} colors={this.state.colors} hash={this.state.hash} onClick2={this.changeColor} />;
+	    return <FlowCode onClick={this.startOver} selectedColor={this.state.selectedColor} colors={this.state.colors} hash={this.state.hash} onClick2={this.changeColor} />;
             
     }
 

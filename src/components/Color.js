@@ -36,31 +36,22 @@ export class Color extends React.Component {
 	}
 	
 	handleClick(e) {
+		
 		const newColor = this.props.color
-		console.log(newColor);
-		//console.log();
 		this.props.onClick(newColor);
 		e.preventDefault();
 		
 	}
 	
+	shouldComponentUpdate(prevState) {
+		
+		return prevState.open !== this.state.open;
+		
+	}
+	
 	render() {
         
-		
-		//const className = this.props.color === this.props.selected ? 'select' : '',
-		//  completedClassName = `color ${className}`; 
-		//let colorRef = this[this.props.color];
-		//console.log('render colorRef: ',colorRef);
-		if(this.state.open) {
-			
-			return <div className='color select' style={{backgroundColor: this.props.color}} onClick={this.handleClick}></div>;
-			
-		} else {
-			
-			return <div className='color' style={{backgroundColor: this.props.color}} onClick={this.handleClick}></div>;
-			
-		}
-		
-		//return <div ref={this.props.color} className={completedClassName} style={{backgroundColor: this.props.color}} /*onClick={this.handleClick}></div>;
+		return <div className={this.state.open ? 'color select' : 'color'} style={{backgroundColor: this.props.color}} onClick={this.handleClick}></div>;
+
     }
 }

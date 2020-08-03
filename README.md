@@ -1,6 +1,6 @@
 ## Flowcode/React Version 2.0
 
-A color flow code which can generate fifty random colors with the click of a button, as well as functionality to select a specific color. Unlike our previous version which was implemented by rendering on dynamic information in the form of nested props or state. Instead, we manipulated child component instances from a parent container component using React.createrefs.
+A color flow code which can generate fifty random colors with the click of a button, as well as functionality to select a specific color. Unlike our previous version which was implemented by rendering dynamic information in the form of nested props or state, we manipulate child component instances from a parent container component using React.createrefs.
 
 ## Functionalities
 

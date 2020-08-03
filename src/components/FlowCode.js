@@ -1,30 +1,25 @@
 import React from 'react';
-import '../App.css';
-import { Color } from './Color';
+import { FlowCodeErrorBoundary } from './errors/FlowCodeErrorBoundary';
+import { FlowCodeHeadline } from './FlowCodeHeadline';
+import { ColorList } from './ColorList';
 
-export const FlowCode = props => {
+export function FlowCode(props) {
 	
 	return (
-		
 		<div className="container">
-		
-			<h1>Color Selector</h1>
 			
-				<div className='reset' >
+			<FlowCodeErrorBoundary>
 				
-					<button onClick={props.onClick}>Reset</button>
+				<FlowCodeHeadline onClick={props.startOver} selectedColor={props.selectedColor} />
+			
+			</ FlowCodeErrorBoundary>
+			
+			<FlowCodeErrorBoundary>
 				
-				</div>
-				
-				<div className="selected-color">
-					
-					<h2>{props.selectedColor ? `You picked ${props.selectedColor}` : 'Choose a Color!'}</h2>
-				
-				</div>
-				
-				{props.colors.map((color, i) => <Color ref={props.hash[color]} key={'color_'+i} color={color} selected={props.selectedColor} onClick={props.onClick2}/>)}
-        
+				<ColorList changeColor={props.changeColor} colors={props.colors} hash={props.hash}/>
+			
+			</ FlowCodeErrorBoundary>
+		
 		</div>
-	
 	);
 }

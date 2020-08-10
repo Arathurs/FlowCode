@@ -16,7 +16,7 @@ Unlike our previous version which was implemented by rendering dynamic informati
   - Display a list of 50 random colors which are passed down to child components from a container parent component, which stores the all 50 colors and a selected color in it's state.
   - Users can pick a color from the list which will then become the active color. 
   - The element displaying the active color will highlight with a border upon being designated by the user. The active color will also be displayed at the top of the screen in it's rgb form. For example, navy blue would be `rbg(0,0,128)`. Users can switch active colors by simply clicking another.
-  - Display a 'Reset' button. When 'Reset' is clicked state and therefore the color list UI is updated with 50 random new colors.
+  - Display a 'Reset' button. When 'Reset' is clicked, state and therefore the color list and UI, is updated with 50 random new colors.
 
 
 ### Technologies Used

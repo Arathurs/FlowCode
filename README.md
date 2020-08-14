@@ -24,4 +24,4 @@ Unlike our previous version which was implemented by rendering dynamic informati
 - React.createRef()
 - ReactDOM
 - HTML5
-- CSS5
+- CSS3

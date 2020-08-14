@@ -3,7 +3,8 @@
 ### Screenshot:
   ![Screenshot](/public/img/homepage.png/)
 
-#### [Link to Repo](https://github.com/Arathurs/FlowCodev2.0.git/)  
+#### [Link to Live Site](https://arathurs.github.io/FlowCode/)
+#### [Link to Repo](https://github.com/Arathurs/FlowCode.git/)  
 
 ### About the Project
 

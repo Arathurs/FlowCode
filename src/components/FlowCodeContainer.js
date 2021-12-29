@@ -71,7 +71,7 @@ export class FlowCodeContainer extends React.Component {
 		this.setState({
 			colors: colors,
 			initialized: true,
-			selectedColor:null,
+			selectedColor: null,
 			hash: colorReferences
 		});	
 	}

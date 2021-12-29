@@ -1,5 +1,4 @@
 import React from 'react';
-import { ColorErrorBoundary } from './errors/ColorErrorBoundary';
 
 export class Color extends React.Component {
   	constructor(props) {

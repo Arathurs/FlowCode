@@ -28,9 +28,10 @@ export class Color extends React.Component {
 	
 	handleClick(e) {
 		
+		e.preventDefault();
 		const newColor = this.props.color
 		this.props.onClick(newColor);
-		e.preventDefault();
+		
 	}
 	
 	shouldComponentUpdate(prevState) {

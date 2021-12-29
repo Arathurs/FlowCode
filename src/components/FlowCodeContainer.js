@@ -1,6 +1,5 @@
 import React from 'react';
 import { createFiftyRandomColors } from '../assets/js/helperfunctions'; 
-import { FlowCodeErrorBoundary } from './errors/FlowCodeErrorBoundary';
 import { FlowCode } from './FlowCode';
 
 export class FlowCodeContainer extends React.Component {
@@ -86,11 +85,8 @@ export class FlowCodeContainer extends React.Component {
 	
 	render() {
        
-	    return (
-			<FlowCodeErrorBoundary>
-				<FlowCode startOver={this.startOver} selectedColor={this.state.selectedColor} colors={this.state.colors} hash={this.state.hash} changeColor={this.changeColor} />
-			</ FlowCodeErrorBoundary>
-        );   
+	    return <FlowCode startOver={this.startOver} selectedColor={this.state.selectedColor} colors={this.state.colors} hash={this.state.hash} changeColor={this.changeColor} />
+
     }
 
 }

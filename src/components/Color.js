@@ -42,5 +42,6 @@ export class Color extends React.Component {
 	render() {
         
 		return <div className={this.state.open ? 'color select' : 'color'} style={{backgroundColor: this.props.color}} onClick={this.handleClick} />;
-    }
+    
+	}
 }

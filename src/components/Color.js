@@ -41,10 +41,6 @@ export class Color extends React.Component {
 	
 	render() {
         
-		return (
-			<ColorErrorBoundary>
-				<div className={this.state.open ? 'color select' : 'color'} style={{backgroundColor: this.props.color}} onClick={this.handleClick} />
-			</ ColorErrorBoundary>
-		) ;
+		return <div className={this.state.open ? 'color select' : 'color'} style={{backgroundColor: this.props.color}} onClick={this.handleClick} />;
     }
 }

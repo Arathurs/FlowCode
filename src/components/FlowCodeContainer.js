@@ -55,18 +55,13 @@ export class FlowCodeContainer extends React.Component {
 		if(this.state.selectedColor) {
 			
 			this.removeColor();
-			refNode.select();
-			this.setState({
-				selectedColor: newColor
-			});
 			
-		} else {
-			
-			refNode.select();
-			this.setState({	
-				selectedColor: newColor
-			});
 		}
+			
+		refNode.select();
+		this.setState({	
+			selectedColor: newColor
+		});
 	}
 	
 	startOver() {
@@ -85,7 +80,7 @@ export class FlowCodeContainer extends React.Component {
 	
 	render() {
        
-	    return <FlowCode startOver={this.startOver} selectedColor={this.state.selectedColor} colors={this.state.colors} hash={this.state.hash} changeColor={this.changeColor} />
+	    return <FlowCode startOver={this.startOver} selectedColor={this.state.selectedColor} colors={this.state.colors} hash={this.state.hash} changeColor={this.changeColor} />;
 
     }
 

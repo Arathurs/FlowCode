@@ -6,9 +6,7 @@ import { FlowCodeContainer } from './components/FlowCodeContainer';
 function App () {
 	
 	return (
-	  <AppErrorBoundary>
 	    <FlowCodeContainer />
-	  </ AppErrorBoundary>
 	);
 }
 

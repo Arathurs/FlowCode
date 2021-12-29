@@ -4,9 +4,7 @@ import { FlowCodeContainer } from './components/FlowCodeContainer';
 
 function App () {
 	
-	return (
-	    <FlowCodeContainer />
-	);
+	return <FlowCodeContainer />;
 }
 
 export default App;
